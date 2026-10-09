@@ -1,0 +1,208 @@
+First 5 rows:
+   Order_ID        Date   Product     Category  Quantity    Price Customer_City
+0      1001  2026-01-05    Laptop  Electronics       2.0  55000.0     Hyderabad
+1      1002  2026-01-06     Mouse  Electronics       5.0    800.0     Hyderabad
+2      1003  2026-01-07  Keyboard  Electronics       3.0   1500.0     Bangalore
+3      1004  2026-01-08   Monitor  Electronics       2.0  12000.0       Chennai
+4      1005  2026-01-09     Chair    Furniture       4.0   5000.0     Hyderabad
+
+Shape of dataset:
+(21, 7)
+
+Dataset information:
+<class 'pandas.DataFrame'>
+RangeIndex: 21 entries, 0 to 20
+Data columns (total 7 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   Order_ID       21 non-null     int64  
+ 1   Date           21 non-null     str    
+ 2   Product        21 non-null     str    
+ 3   Category       21 non-null     str    
+ 4   Quantity       20 non-null     float64
+ 5   Price          20 non-null     float64
+ 6   Customer_City  20 non-null     str    
+dtypes: float64(2), int64(1), str(4)
+memory usage: 1.3 KB
+
+Missing values:
+Order_ID         0
+Date             0
+Product          0
+Category         0
+Quantity         1
+Price            1
+Customer_City    1
+dtype: int64
+
+Rows with missing values:
+    Order_ID        Date   Product  ... Quantity    Price  Customer_City
+17      1017  2026-01-21    Laptop  ...      NaN  55000.0      Hyderabad
+18      1018  2026-01-22     Mouse  ...      6.0      NaN      Bangalore
+19      1019  2026-01-23  Keyboard  ...      3.0   1500.0            NaN
+
+[3 rows x 7 columns]
+
+Missing values after cleaning:
+Order_ID         0
+Date             0
+Product          0
+Category         0
+Quantity         0
+Price            0
+Customer_City    0
+dtype: int64
+
+Number of duplicate rows:
+1
+
+Duplicate rows:
+    Order_ID        Date Product   Category  Quantity   Price Customer_City
+16      1005  2026-01-09   Chair  Furniture       4.0  5000.0     Hyderabad
+
+Duplicate rows after cleaning:
+0
+
+Number of rows after removing duplicates:
+20
+
+Lower limit: -5.5
+Upper limit: 14.5
+
+Quantity outliers:
+    Order_ID        Date   Product  ... Quantity    Price  Customer_City
+7       1008  2026-01-12       Pen  ...     20.0     20.0      Hyderabad
+14      1015  2026-01-19  Notebook  ...     15.0    100.0      Bangalore
+15      1016  2026-01-20       Pen  ...     25.0     20.0        Chennai
+20      1020  2026-01-24   Monitor  ...    100.0  12000.0        Chennai
+
+[4 rows x 7 columns]
+
+Quantity after handling outlier:
+0      2.0
+1      5.0
+2      3.0
+3      2.0
+4      4.0
+5      2.0
+6     10.0
+7     20.0
+8      1.0
+9      4.0
+10     2.0
+11     1.0
+12     3.0
+13     1.0
+14    15.0
+15    25.0
+17     3.5
+18     6.0
+19     3.0
+20    25.0
+Name: Quantity, dtype: float64
+
+Dataset with Total Sales:
+    Order_ID        Date   Product  ...    Price  Customer_City  Total_Sales
+0       1001  2026-01-05    Laptop  ...  55000.0      Hyderabad     110000.0
+1       1002  2026-01-06     Mouse  ...    800.0      Hyderabad       4000.0
+2       1003  2026-01-07  Keyboard  ...   1500.0      Bangalore       4500.0
+3       1004  2026-01-08   Monitor  ...  12000.0        Chennai      24000.0
+4       1005  2026-01-09     Chair  ...   5000.0      Hyderabad      20000.0
+5       1006  2026-01-10      Desk  ...   9000.0      Bangalore      18000.0
+6       1007  2026-01-11  Notebook  ...    100.0        Chennai       1000.0
+7       1008  2026-01-12       Pen  ...     20.0      Hyderabad        400.0
+8       1009  2026-01-13    Laptop  ...  55000.0      Bangalore      55000.0
+9       1010  2026-01-14     Mouse  ...    800.0        Chennai       3200.0
+10      1011  2026-01-15  Keyboard  ...   1500.0      Hyderabad       3000.0
+11      1012  2026-01-16   Monitor  ...  12000.0      Bangalore      12000.0
+12      1013  2026-01-17     Chair  ...   5000.0        Chennai      15000.0
+13      1014  2026-01-18      Desk  ...   9000.0      Hyderabad       9000.0
+14      1015  2026-01-19  Notebook  ...    100.0      Bangalore       1500.0
+15      1016  2026-01-20       Pen  ...     20.0        Chennai        500.0
+17      1017  2026-01-21    Laptop  ...  55000.0      Hyderabad     192500.0
+18      1018  2026-01-22     Mouse  ...   5000.0      Bangalore      30000.0
+19      1019  2026-01-23  Keyboard  ...   1500.0      Hyderabad       4500.0
+20      1020  2026-01-24   Monitor  ...  12000.0        Chennai     300000.0
+
+[20 rows x 8 columns]
+
+Date column after conversion:
+0   2026-01-05
+1   2026-01-06
+2   2026-01-07
+3   2026-01-08
+4   2026-01-09
+Name: Date, dtype: datetime64[us]
+
+Total Sales by Category:
+Category
+Electronics    742700.0
+Furniture       62000.0
+Stationery       3400.0
+Name: Total_Sales, dtype: float64
+
+Total Sales by City:
+Customer_City
+Bangalore    121000.0
+Chennai      343700.0
+Hyderabad    343400.0
+Name: Total_Sales, dtype: float64
+
+Daily Sales:
+Date
+2026-01-05    110000.0
+2026-01-06      4000.0
+2026-01-07      4500.0
+2026-01-08     24000.0
+2026-01-09     20000.0
+2026-01-10     18000.0
+2026-01-11      1000.0
+2026-01-12       400.0
+2026-01-13     55000.0
+2026-01-14      3200.0
+2026-01-15      3000.0
+2026-01-16     12000.0
+2026-01-17     15000.0
+2026-01-18      9000.0
+2026-01-19      1500.0
+2026-01-20       500.0
+2026-01-21    192500.0
+2026-01-22     30000.0
+2026-01-23      4500.0
+2026-01-24    300000.0
+Name: Total_Sales, dtype: float64
+
+Cleaned dataset saved successfully!
+
+===== KEY INSIGHTS =====
+
+Total Sales:
+808100.0
+
+Best Category:
+Electronics
+
+Best City:
+Chennai
+
+Best Product:
+Laptop
+
+===== FINAL DATA QUALITY CHECK =====
+
+Missing values:
+Order_ID         0
+Date             0
+Product          0
+Category         0
+Quantity         0
+Price            0
+Customer_City    0
+Total_Sales      0
+dtype: int64
+
+Duplicate rows:
+0
+
+Final number of rows and columns:
+(20, 8)
